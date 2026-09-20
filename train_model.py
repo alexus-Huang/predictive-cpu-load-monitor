@@ -9,6 +9,9 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 df = pd.read_csv("data/telemetry.csv")
 df['cpu_rolling_avg'] = df['cpu_percent'].rolling(window=5).mean() # how many past reads to avg together to create cpu_rolling_avg
 df['cpu_trend'] = df['cpu_percent'].diff()
+df['read_bytes_delta'] = df['read_bytes'].diff()
+df['write_bytes_delta'] = df['write_bytes'].diff()
+
 
 # Create target column
 N = 10 # predicting 10 seconds ahead
