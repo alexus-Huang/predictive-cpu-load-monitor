@@ -2,8 +2,6 @@
 
 A live dashboard that polls a machine's CPU and RAM usage in real time and uses a trained regression model to predict CPU load ~10 seconds ahead — surfacing a live "NORMAL" / "WARNING" status alongside the raw readings.
 
-![Dashboard Screenshot](docs/screenshot.png)
-<!-- add a screenshot of your dashboard here -->
 
 ## What it does
 
