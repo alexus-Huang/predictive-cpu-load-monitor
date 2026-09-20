@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, send_from_directory
 import psutil
 import joblib
+import pandas as pd
 
 app = Flask(__name__)
 model = joblib.load('models/thermal_model.pkl')
@@ -26,7 +27,8 @@ def get_telemetry():
     else:
         cpu_trend = 0
 
-    features = [[cpu, ram, cpu_rolling_avg, cpu_trend]]
+    features = pd.DataFrame([[cpu, ram, cpu_rolling_avg, cpu_trend]],
+                         columns=['cpu_percent', 'ram_percent', 'cpu_rolling_avg', 'cpu_trend'])
     predicted_cpu = model.predict(features)[0] # Gets single value out of the array .predict() returns
     # build feature array and call model.predict()
     return jsonify({

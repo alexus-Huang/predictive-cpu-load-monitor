@@ -4,13 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Thermal Monitor</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div id="container">
         <h1>Predictive Thermal Monitor</h1>
-        <p>Current CPU: <span id="current"></span>%</p>
-        <p>Predicted CPU: <span id="predicted"></span>%</p>
-        <p>Status: <span id="status"></span></p>
+
+        <div class="stats-row">
+            <div class="stat">
+                <span class="stat-label">Current CPU</span>
+                <span class="stat-value" id="current">--</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Predicted CPU</span>
+                <span class="stat-value" id="predicted">--</span>
+            </div>
+            <div class="stat" id="status-box">
+                <span class="stat-label">Status</span>
+                <span class="stat-value" id="status">--</span>
+            </div>
+        </div>
+
+        <div class="graph-panel">
+            <!-- chart -->
+        </div>
     </div>
 
     <script src="/static/script.js"></script>
