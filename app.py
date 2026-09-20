@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, send_from_directory
 import psutil
 import joblib
 
@@ -6,6 +6,10 @@ app = Flask(__name__)
 model = joblib.load('models/thermal_model.pkl')
 
 cpu_history = []
+
+@app.route('/')
+def index():
+    return send_from_directory('static', 'index.html')
 
 @app.route('/api/telemetry')
 def get_telemetry():
